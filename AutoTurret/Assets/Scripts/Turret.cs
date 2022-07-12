@@ -4,28 +4,24 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    public float TurretRotateSpeed;
-
     public GameObject BulletPrefab;
-    
-    public float spawnRateMin = 0.5f;
-    public float spawnRateMax = 3f;
 
+    public float TurretRotationSpeed = 15f;
+
+    private float spawnRateMin = 0.5f;
+    private float spawnRateMax = 2f;
     private float spawnRate;
     private float elapsedTime;
 
     void Start()
     {
         spawnRate = Random.Range(spawnRateMin, spawnRateMax);
-        TurretRotateSpeed = 30f;
     }
 
     void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
-            Debug.Log("플레이어 감지");
-
             elapsedTime += Time.deltaTime;
 
             Transform Target = other.transform;
@@ -42,9 +38,9 @@ public class Turret : MonoBehaviour
         }
         else
         {
-            transform.Rotate(new Vector3(0f, TurretRotateSpeed * Time.deltaTime, 0f));
+            Vector3 TurretRotate = new Vector3(0f, TurretRotationSpeed * Time.deltaTime, 0f);
+            transform.Rotate(TurretRotate);
+           
         }
     }
-
-
 }

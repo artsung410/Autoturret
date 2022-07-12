@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     private PlayerInput Input;
-    private Rigidbody Rigid;
+    private Rigidbody PlayerRigid;
 
     public float Speed = 10f;
     void Start()
     {
         Input = GetComponent<PlayerInput>();
-        Rigid = GetComponent<Rigidbody>();
+        PlayerRigid = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -21,7 +21,7 @@ public class PlayerMove : MonoBehaviour
 
         Vector3 newVelocity = new Vector3(xSpeed, 0f, zSpeed);
 
-        Rigid.velocity = newVelocity;
+        PlayerRigid.velocity = newVelocity;
 
     }
 }
