@@ -15,4 +15,18 @@ public class PlayerHeath : MonoBehaviour
     {
         
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Bullet")
+        {
+            Debug.Log("플레이어가 사망하였습니다.");
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        gameObject.SetActive(false);
+    }
 }
