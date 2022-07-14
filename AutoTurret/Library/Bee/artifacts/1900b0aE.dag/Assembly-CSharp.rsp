@@ -356,6 +356,7 @@
 "Assets/Scripts/PlayerInput.cs"
 "Assets/Scripts/PlayerMove.cs"
 "Assets/Scripts/Turret.cs"
+"Assets/Scripts/TurretTargeting.cs"
 -langversion:9.0
 
 /deterministic

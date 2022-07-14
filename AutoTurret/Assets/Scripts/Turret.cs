@@ -1,46 +1,50 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    public GameObject BulletPrefab;
+    public TurretTargeting Targeting;
 
-    public float TurretRotationSpeed = 15f;
+    public Transform Target;
 
+    public GameObject Bullet;
+
+    public float Speed = 3f;
     private float spawnRateMin = 0.5f;
     private float spawnRateMax = 2f;
     private float spawnRate;
     private float elapsedTime;
+
+    Vector3 TurretRotate = new Vector3(0f, 1f, 0f);
 
     void Start()
     {
         spawnRate = Random.Range(spawnRateMin, spawnRateMax);
     }
 
-    void OnTriggerStay(Collider other)
+    void Update()
     {
-        if (other.tag == "Player")
+        if (Targeting.isDetect)
         {
-            elapsedTime += Time.deltaTime;
-
-            Transform Target = other.transform;
-            transform.LookAt(Target);
-
-            if (elapsedTime >= spawnRate)
-            {
-                GameObject bullet = Instantiate(BulletPrefab, transform.position, transform.rotation);
-                bullet.transform.LookAt(Target);
-
-                elapsedTime = 0;
-                spawnRate = Random.Range(spawnRateMin, spawnRateMax);
-            }
+            Fire();
         }
-        else
+    }
+
+    void Fire()
+    {
+        elapsedTime += Time.deltaTime;
+
+        transform.LookAt(Target);
+
+        if (elapsedTime >= spawnRate)
         {
-            Vector3 TurretRotate = new Vector3(0f, TurretRotationSpeed * Time.deltaTime, 0f);
-            transform.Rotate(TurretRotate);
-           
+            GameObject bullet = Instantiate(Bullet, transform.position, transform.rotation);
+
+            elapsedTime = 0f;
+
+            spawnRate = Random.Range(spawnRateMin, spawnRateMax);
         }
     }
 }

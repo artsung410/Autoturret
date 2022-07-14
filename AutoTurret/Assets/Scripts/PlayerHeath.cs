@@ -9,7 +9,7 @@ public class PlayerHeath : MonoBehaviour
         if(other.tag == "Bullet")
         {
             Debug.Log("★★★플레이어 사망!!★★★");
-            Die();
+            //Die();
         }
     }
 
