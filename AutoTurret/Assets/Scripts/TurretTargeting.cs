@@ -19,7 +19,7 @@ public class TurretTargeting : MonoBehaviour
 
         Vector3 direction = Target.position - transform.position;
 
-        if (direction.magnitude < distance) // magnitude a^2 + b^2; 
+        if (direction.magnitude < distance) 
         {
             if (Vector3.Dot(direction.normalized, transform.forward) > dotValue)
             {
@@ -39,8 +39,8 @@ public class TurretTargeting : MonoBehaviour
         }
     }
 
-    Color NoneDetectColor = new Color(0f, 0f, 1f, 0.2f);
-    Color DetectColor = new Color(1f, 0f, 0f, 0.2f);
+    //Color NoneDetectColor = new Color(0f, 0f, 1f, 0.2f);
+    //Color DetectColor = new Color(1f, 0f, 0f, 0.2f);
 
     //private void OnDrawGizmos()
     //{
