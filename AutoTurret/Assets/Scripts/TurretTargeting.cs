@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 
 public class TurretTargeting : MonoBehaviour
 {
@@ -42,13 +42,13 @@ public class TurretTargeting : MonoBehaviour
     Color NoneDetectColor = new Color(0f, 0f, 1f, 0.2f);
     Color DetectColor = new Color(1f, 0f, 0f, 0.2f);
 
-    private void OnDrawGizmos()
-    {
-        Handles.color = isDetect ? DetectColor : NoneDetectColor;
+    //private void OnDrawGizmos()
+    //{
+    //    Handles.color = isDetect ? DetectColor : NoneDetectColor;
 
-        Handles.DrawSolidArc(transform.position, Vector3.up, transform.forward, angleRange / 2, distance);
-        Handles.DrawSolidArc(transform.position, Vector3.up, transform.forward, -angleRange / 2, distance);
-    }
+    //    Handles.DrawSolidArc(transform.position, Vector3.up, transform.forward, angleRange / 2, distance);
+    //    Handles.DrawSolidArc(transform.position, Vector3.up, transform.forward, -angleRange / 2, distance);
+    //}
 
     // 콜라이더로 적 침입 판별
     //private void OnTriggerStay(Collider other)
